@@ -34,7 +34,7 @@ namespace PxParser
 
 	public:
 		void AddChild(const ChildPtr& child);
-		ChildPtr GetChild(const std::string& name) const;
+		std::vector<ChildPtr> GetChild(const std::string& name) const;
 
 		const Children& GetChildren() const;
 		ChildrenConstIterator GetChildrenBegin() const;
@@ -42,7 +42,7 @@ namespace PxParser
 
 	public:
 		void AddValue(const ValuePtr& value);
-		ValuePtr GetValue(const std::string& name) const;
+		std::vector<ValuePtr> GetValue(const std::string& name) const;
 
 		const Values& GetValues() const;
 		ValuesConstIterator GetValuesBegin() const;
@@ -50,7 +50,7 @@ namespace PxParser
 
 	public:
 		void AddCondition(const ConditionPtr& condition);
-		ConditionPtr GetCondition(const std::string& name) const;
+		std::vector<ConditionPtr> GetCondition(const std::string& name) const;
 
 		const Conditions& GetConditions() const;
 		ConditionsConstIterator GetConditionsBegin() const;

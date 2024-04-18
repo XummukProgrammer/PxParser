@@ -1,7 +1,18 @@
+###########################
+# Ace pilots Events
+###########################
+
+add_namespace = ace_promoted
+add_namespace = ace_died
+add_namespace = ace_killed_by_ace
+add_namespace = ace_killed_other_ace
+add_namespace = aces_killed_each_other
+
+# New ace has been promoted
 country_event = {
-	id = ace_promoted.2
-	immediate = {log = "[GetDateText]: [Root.GetName]: event ace_promoted.2"}
-	title = ace_promoted.2.t
+	id = ace_promoted.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ace_promoted.1"}
+	title = ace_promoted.1.t
 	desc = {
 		text = ace_promoted.1.d
 		trigger = {

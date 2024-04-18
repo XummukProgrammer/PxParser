@@ -17,16 +17,17 @@ namespace PxParser
         _children.push_back(child);
     }
 
-    Node::ChildPtr Node::GetChild(const std::string& name) const
+    std::vector<Node::ChildPtr> Node::GetChild(const std::string& name) const
     {
+        std::vector<Node::ChildPtr> children;
         for (const auto& child : _children)
         {
             if (child->GetName() == name)
             {
-                return child;
+                children.push_back(child);
             }
         }
-        return nullptr;
+        return children;
     }
 
     const Node::Children& Node::GetChildren() const
@@ -49,16 +50,17 @@ namespace PxParser
         _values.push_back(value);
     }
 
-    Node::ValuePtr Node::GetValue(const std::string& name) const
+    std::vector<Node::ValuePtr> Node::GetValue(const std::string& name) const
     {
+        std::vector<Node::ValuePtr> values;
         for (const auto& value : _values)
         {
             if (value->GetName() == name)
             {
-                return value;
+                values.push_back(value);
             }
         }
-        return nullptr;
+        return values;
     }
 
     const Node::Values& Node::GetValues() const
@@ -81,16 +83,17 @@ namespace PxParser
         _conditions.push_back(condition);
     }
 
-    Node::ConditionPtr Node::GetCondition(const std::string& name) const
+    std::vector<Node::ConditionPtr> Node::GetCondition(const std::string& name) const
     {
+        std::vector<Node::ConditionPtr> conditions;
         for (const auto& condition : _conditions)
         {
             if (condition->GetName() == name)
             {
-                return condition;
+                conditions.push_back(condition);
             }
         }
-        return nullptr;
+        return conditions;
     }
 
     const Node::Conditions& Node::GetConditions() const
