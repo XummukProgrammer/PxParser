@@ -22,6 +22,9 @@ namespace PxParser
 	public:
 		std::string GetDebug() const;
 
+		const std::string& GetText() const;
+		Type GetType() const;
+
 	public:
 		static std::string TypeToString(Type type);
 

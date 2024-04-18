@@ -1,7 +1,9 @@
-if = {
-    limit = {
-        my_scripted_trigger = yes
+TAG = {
+    if = {
+        limit = {      # The bar character "|" is used to visualise the indent guide, rather than being used in-code.
+            has_stability > 0.5
+            has_war_support > 0.5
+        }
+        country_event = { id = my_event.1 hours = 1 }
     }
-    } # Closes the if statement, and so should've been one more level to the left to match the if statement's indent level.
-    my_scripted_effect = yes # Always executed due to being outside of the if statement.
 }

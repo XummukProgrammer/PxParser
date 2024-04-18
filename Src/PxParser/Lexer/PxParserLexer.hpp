@@ -1,7 +1,7 @@
 ﻿#ifndef _PX_PARSER_LEXER_HEADER_
 #define _PX_PARSER_LEXER_HEADER_
 
-#include <PxParser/PxLexer/PxParserToken.hpp>
+#include <PxParser/Lexer/PxParserToken.hpp>
 
 #include <vector>
 #include <memory>

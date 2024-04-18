@@ -20,6 +20,16 @@ namespace PxParser
 		return outString;
 	}
 
+	const std::string& Token::GetText() const
+	{
+		return _text;
+	}
+
+	Token::Type Token::GetType() const
+	{
+		return _type;
+	}
+
 	std::string Token::TypeToString(Type type)
 	{
 		switch (type)
