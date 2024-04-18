@@ -118,7 +118,7 @@ namespace PxParser
 
 	bool Lexer::IsNumber(char symbol)
 	{
-		return symbol >= '0' && symbol <= '9' || symbol == '.';
+		return symbol >= '0' && symbol <= '9' || symbol == '.' || symbol == '-';
 	}
 
 	bool Lexer::IsEmpty(char symbol)
