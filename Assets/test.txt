@@ -1,0 +1,7 @@
+if = {
+    limit = {
+        my_scripted_trigger = yes
+    }
+    } # Closes the if statement, and so should've been one more level to the left to match the if statement's indent level.
+    my_scripted_effect = yes # Always executed due to being outside of the if statement.
+}

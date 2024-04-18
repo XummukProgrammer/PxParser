@@ -1,8 +1,10 @@
-﻿#include <iostream>
+﻿#include <PxParser/PxParser.hpp>
 
 int main(int argc, char** argv)
 {
-	std::cout << "Hello, World!" << std::endl;
+	PxParser::Lexer lexer;
+	lexer.LoadFromFile("D:\\Git\\PxParser\\Assets\\test.txt");
+	lexer.DebugPrintTokens();
 	system("pause");
 	return 0;
 }
