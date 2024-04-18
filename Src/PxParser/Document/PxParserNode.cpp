@@ -78,6 +78,18 @@ namespace PxParser
         return _values.end();
     }
 
+    std::vector<std::string> Node::GetArray() const
+    {
+        std::vector<std::string> arr;
+
+        for (const auto& value : GetValue("Array"))
+        {
+            arr.push_back(value->GetValue());
+        }
+
+        return arr;
+    }
+
     void Node::AddCondition(const ConditionPtr& condition)
     {
         _conditions.push_back(condition);

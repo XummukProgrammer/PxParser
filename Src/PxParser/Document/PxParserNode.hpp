@@ -48,6 +48,8 @@ namespace PxParser
 		ValuesConstIterator GetValuesBegin() const;
 		ValuesConstIterator GetValuesEnd() const;
 
+		std::vector<std::string> GetArray() const;
+
 	public:
 		void AddCondition(const ConditionPtr& condition);
 		std::vector<ConditionPtr> GetCondition(const std::string& name) const;

@@ -103,6 +103,22 @@ namespace PxParser
 							++begin;
 						}
 					}
+					else if ((*begin)->GetText() == "}")
+					{
+						_stack.top()->AddValue(std::make_shared<Value>("Array", name));
+					}
+				}
+				else if ((*begin)->GetType() == Token::Type::String)
+				{
+					_stack.top()->AddValue(std::make_shared<Value>("Array", name));
+
+					do
+					{
+						_stack.top()->AddValue(std::make_shared<Value>("Array", (*begin)->GetText()));
+
+						++begin;
+					} 
+					while ((*begin)->GetText() != "}");
 				}
 			}
 			else if ((*begin)->GetType() == Token::Type::Operator)
