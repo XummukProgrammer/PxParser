@@ -1,10 +1,4 @@
-name = "Average mod"
-path = "mod/modname"
-picture = "thumbnail.png"
-version = "v1"
-supported_version = "1.13.*"
-tags={
-	"Gameplay"
-	"Historical"
-}
-remote_file_id="1678247250"
+user_dir = "NewSaveFolder"
+ dependencies = { "Major Mod" "Major Mod 2" }
+ replace_path = "history/states" 
+ replace_path = "map/strategicregions" 

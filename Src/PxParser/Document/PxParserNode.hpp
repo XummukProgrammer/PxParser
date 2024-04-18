@@ -42,7 +42,7 @@ namespace PxParser
 
 	public:
 		void AddValue(const ValuePtr& value);
-		std::vector<ValuePtr> GetValue(const std::string& name) const;
+		std::vector<std::string> GetValue(const std::string& name) const;
 
 		const Values& GetValues() const;
 		ValuesConstIterator GetValuesBegin() const;

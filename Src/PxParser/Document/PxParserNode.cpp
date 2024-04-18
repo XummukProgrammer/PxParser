@@ -50,14 +50,14 @@ namespace PxParser
         _values.push_back(value);
     }
 
-    std::vector<Node::ValuePtr> Node::GetValue(const std::string& name) const
+    std::vector<std::string> Node::GetValue(const std::string& name) const
     {
-        std::vector<Node::ValuePtr> values;
+        std::vector<std::string> values;
         for (const auto& value : _values)
         {
             if (value->GetName() == name)
             {
-                values.push_back(value);
+                values.push_back(value->GetValue());
             }
         }
         return values;
@@ -80,14 +80,7 @@ namespace PxParser
 
     std::vector<std::string> Node::GetArray() const
     {
-        std::vector<std::string> arr;
-
-        for (const auto& value : GetValue("Array"))
-        {
-            arr.push_back(value->GetValue());
-        }
-
-        return arr;
+        return GetValue("Array");
     }
 
     void Node::AddCondition(const ConditionPtr& condition)
