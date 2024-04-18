@@ -1,5 +1,7 @@
 ﻿#include "PxParserLexer.hpp"
 
+#include <PxParser/Helpers/PxParserDebugPrinters.hpp>
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -102,7 +104,7 @@ namespace PxParser
 		std::cout << "================================" << std::endl;
 		for (const auto& token : _tokens)
 		{
-			std::cout << token->GetDebug() << std::endl;
+			Helpers::PrintToken(*token);
 		}
 		std::cout << "================================" << std::endl;
 	}

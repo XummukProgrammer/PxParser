@@ -1,21 +1,13 @@
 
-TAG = 
-{
-
-	if = 
-	{
-
-		limit = 
-		{
-
-			country_event = 
-			{
-
+TAG = {
+	if = {
+		limit = {
+			has_stability > 0.5
+			has_war_support > 0.5
+			country_event = {
 				id = my_event.1
 				hours = 1
 			}
-			has_stability > 0.5
-			has_war_support > 0.5
 		}
 	}
 }

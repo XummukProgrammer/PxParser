@@ -20,13 +20,8 @@ namespace PxParser
 		~Token() = default;
 		
 	public:
-		std::string GetDebug() const;
-
 		const std::string& GetText() const;
 		Type GetType() const;
-
-	public:
-		static std::string TypeToString(Type type);
 
 	private:
 		std::string _text;

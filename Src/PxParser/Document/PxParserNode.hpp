@@ -58,9 +58,6 @@ namespace PxParser
 		ConditionsConstIterator GetConditionsBegin() const;
 		ConditionsConstIterator GetConditionsEnd() const;
 
-	public:
-		void Save(std::string& data, int& depth);
-
 	private:
 		std::string _name;
 		Children _children;

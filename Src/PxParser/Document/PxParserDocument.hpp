@@ -8,26 +8,23 @@
 
 namespace PxParser
 {
-	class Document final
+	class Document
 	{
 	public:
 		using NodePtr = std::shared_ptr<Node>;
 
 	public:
 		Document();
-		~Document() = default;
+		virtual ~Document() = default;
 
 	public:
 		NodePtr GetRoot() const;
 
 	public:
-		void LoadFromFile(const std::string& fullPath);
-		void SaveToFile(const std::string& fullPath);
+		virtual void LoadFromFile(const std::string& fullPath) {}
+		virtual void SaveToFile(const std::string& fullPath) {}
 
-	public:
-		static std::string GetTabsByDepth(int depth);
-
-	private:
+	protected:
 		NodePtr _root;
 		std::stack<NodePtr> _stack;
 	};
