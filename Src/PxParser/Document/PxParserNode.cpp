@@ -1,5 +1,7 @@
 ﻿#include "PxParserNode.hpp"
 
+#include <PxParser/Document/PxParserDocument.hpp>
+
 namespace PxParser
 {
     Node::Node(const std::string& name)
@@ -114,5 +116,53 @@ namespace PxParser
     Node::ConditionsConstIterator Node::GetConditionsEnd() const
     {
         return _conditions.end();
+    }
+
+    void Node::Save(std::string& data, int& depth)
+    {
+        //++depth;
+
+        std::string tabs = Document::GetTabsByDepth(depth);
+
+        if (_name != "Root")
+        {
+            data += "\n";
+            data += tabs;
+            data += _name;
+            data += "\n";
+            data += tabs;
+            data += "{";
+            data += "\n";
+        }
+
+        for (const auto& value : _values)
+        {
+            ++depth;
+            value->Save(data, depth);
+            --depth;
+        }
+
+        for (const auto& child : _children)
+        {
+            ++depth;
+            child->Save(data, depth);
+            --depth;
+        }
+
+        for (const auto& condition : _conditions)
+        {
+            ++depth;
+            condition->Save(data, depth);
+            --depth;
+        }
+
+        if (_name != "Root")
+        {
+            data += "\n";
+            data += tabs;
+            data += "}";
+        }
+
+        //--depth;
     }
 }

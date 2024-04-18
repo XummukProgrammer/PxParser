@@ -2,6 +2,8 @@
 
 #include <PxParser/Lexer/PxParserLexer.hpp>
 
+#include <fstream>
+
 namespace PxParser
 {
 	Document::Document()
@@ -131,5 +133,29 @@ namespace PxParser
 				}
 			}
 		}
+	}
+
+	void Document::SaveToFile(const std::string& fullPath)
+	{
+		std::ofstream fout(fullPath);
+		if (fout.is_open())
+		{
+			int depth = -1;
+			std::string data;
+			_root->Save(data, depth);
+			fout << data;
+
+			fout.close();
+		}
+	}
+
+	std::string Document::GetTabsByDepth(int depth)
+	{
+		std::string out;
+		for (int i = 0; i < depth; ++i)
+		{
+			out += "\t";
+		}
+		return out;
 	}
 }

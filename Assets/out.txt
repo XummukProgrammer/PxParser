@@ -1,112 +1,138 @@
-ability = {
 
-	coffeerush = {
+ability
+{
+
+	coffeerush
+	{
+
 		name = ABILITY_coffeerush
 		desc = ABILITY_coffeerush_DESC
 		icon = GFX_ability_coffee
-
 		sound_effect = command_power_ability_offensive
-
 		type = army_leader
+		cost = 0.2
+		duration = 250
+		allowed
+		{
 
-		allowed = {
 			is_leading_army_group = no
 			is_border_war = no
+			OWNER
+			{
 
-			OWNER = {
 				is_ai = no
 				has_completed_focus = caf_drugged_soldiers
-				has_equipment = {
+				has_equipment
+				{
+
 					drug_equipment_coffee > 75
 				}
 			}
 		}
-		cost = 0.2
-		duration = 250
+		one_time_effect
+		{
 
-		one_time_effect = {
-			OWNER = {
-				add_equipment_to_stockpile = {
+			OWNER
+			{
+
+				add_equipment_to_stockpile
+				{
+
 					type = drug_equipment_coffee
 					amount = -75
-					#producer = CAF
 				}
 			}
-			add_timed_unit_leader_trait = {
+			add_timed_unit_leader_trait
+			{
+
 				trait = exhausted_order_trait
 				days = 20
 			}
 		}
+		unit_modifiers
+		{
 
-		unit_modifiers = {
 			army_speed_factor = 0.15
 			dig_in_speed_factor = 0.1
 			supply_consumption_factor = 0.1
 		}
+		ai_will_do
+		{
 
-		ai_will_do = {
 			factor = -1
-			modifier = {
+			modifier
+			{
 
 			}
 		}
 	}
+	coffeerush2
+	{
 
-	coffeerush2 = {
 		name = ABILITY_coffeerush2
 		desc = ABILITY_coffeerush2_DESC
 		icon = GFX_ability_coffee2
-
 		sound_effect = command_power_ability_offensive
-
 		type = army_leader
+		cost = 0.2
+		duration = 250
+		allowed
+		{
 
-		allowed = {
 			is_leading_army_group = no
 			is_border_war = no
-			OWNER = {
+			OWNER
+			{
+
 				is_ai = no
 				has_completed_focus = caf_drugged_soldiers
-				has_equipment = {
+				has_equipment
+				{
+
 					drug_equipment_coffee2 > 50
 				}
 			}
 		}
+		one_time_effect
+		{
 
-		cost = 0.2
-		duration = 250
+			OWNER
+			{
 
-		one_time_effect = {
-			OWNER = {
-				add_equipment_to_stockpile = {
+				add_equipment_to_stockpile
+				{
+
 					type = drug_equipment_coffee2
 					amount = -50
-					#producer = CAF
 				}
 			}
-			add_timed_unit_leader_trait = {
+			add_timed_unit_leader_trait
+			{
+
 				trait = exhausted_order_trait
 				days = 20
 			}
-			add_temporary_buff_to_units = {
+			add_temporary_buff_to_units
+			{
+
 				combat_offense = 0.15
 				combat_breakthrough = 0.1
-
-
 				days = 10
 				tooltip = ABILITY_COFFERUSH_TOOLTIP
 			}
 		}
+		unit_modifiers
+		{
 
-		unit_modifiers = {
-			#army_morale_factor = 0.15
 			attrition = 0.15
 			supply_consumption_factor = 0.10
 		}
+		ai_will_do
+		{
 
-		ai_will_do = {
 			factor = -1
-			modifier = {
+			modifier
+			{
 
 			}
 		}

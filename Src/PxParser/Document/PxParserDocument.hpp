@@ -22,6 +22,10 @@ namespace PxParser
 
 	public:
 		void LoadFromFile(const std::string& fullPath);
+		void SaveToFile(const std::string& fullPath);
+
+	public:
+		static std::string GetTabsByDepth(int depth);
 
 	private:
 		NodePtr _root;
