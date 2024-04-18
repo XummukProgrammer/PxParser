@@ -1,114 +1,21 @@
-ability = {
 
-	coffeerush = {
-		name = ABILITY_coffeerush
-		desc = ABILITY_coffeerush_DESC
-		icon = GFX_ability_coffee
+TAG = 
+{
 
-		sound_effect = command_power_ability_offensive
+	if = 
+	{
 
-		type = army_leader
+		limit = 
+		{
 
-		allowed = {
-			is_leading_army_group = no
-			is_border_war = no
+			country_event = 
+			{
 
-			OWNER = {
-				is_ai = no
-				has_completed_focus = caf_drugged_soldiers
-				has_equipment = {
-					drug_equipment_coffee > 75
-				}
+				id = my_event.1
+				hours = 1
 			}
-		}
-		cost = 0.2
-		duration = 250
-
-		one_time_effect = {
-			OWNER = {
-				add_equipment_to_stockpile = {
-					type = drug_equipment_coffee
-					amount = -75
-					#producer = CAF
-				}
-			}
-			add_timed_unit_leader_trait = {
-				trait = exhausted_order_trait
-				days = 20
-			}
-		}
-
-		unit_modifiers = {
-			army_speed_factor = 0.15
-			dig_in_speed_factor = 0.1
-			supply_consumption_factor = 0.1
-		}
-
-		ai_will_do = {
-			factor = -1
-			modifier = {
-
-			}
-		}
-	}
-
-	coffeerush2 = {
-		name = ABILITY_coffeerush2
-		desc = ABILITY_coffeerush2_DESC
-		icon = GFX_ability_coffee2
-
-		sound_effect = command_power_ability_offensive
-
-		type = army_leader
-
-		allowed = {
-			is_leading_army_group = no
-			is_border_war = no
-			OWNER = {
-				is_ai = no
-				has_completed_focus = caf_drugged_soldiers
-				has_equipment = {
-					drug_equipment_coffee2 > 50
-				}
-			}
-		}
-
-		cost = 0.2
-		duration = 250
-
-		one_time_effect = {
-			OWNER = {
-				add_equipment_to_stockpile = {
-					type = drug_equipment_coffee2
-					amount = -50
-					#producer = CAF
-				}
-			}
-			add_timed_unit_leader_trait = {
-				trait = exhausted_order_trait
-				days = 20
-			}
-			add_temporary_buff_to_units = {
-				combat_offense = 0.15
-				combat_breakthrough = 0.1
-
-
-				days = 10
-				tooltip = ABILITY_COFFERUSH_TOOLTIP
-			}
-		}
-
-		unit_modifiers = {
-			#army_morale_factor = 0.15
-			attrition = 0.15
-			supply_consumption_factor = 0.10
-		}
-
-		ai_will_do = {
-			factor = -1
-			modifier = {
-
-			}
+			has_stability > 0.5
+			has_war_support > 0.5
 		}
 	}
 }

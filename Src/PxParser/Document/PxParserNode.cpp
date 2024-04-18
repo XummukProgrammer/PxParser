@@ -129,6 +129,7 @@ namespace PxParser
             data += "\n";
             data += tabs;
             data += _name;
+            data += " = ";
             data += "\n";
             data += tabs;
             data += "{";
