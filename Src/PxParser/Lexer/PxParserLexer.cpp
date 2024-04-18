@@ -174,7 +174,7 @@ namespace PxParser
 				break;
 			}
 
-			if (!IsEmpty(*beginText))
+			if (!IsEmpty(*beginText) && !IsOperator(*beginText))
 			{
 				text += *beginText;
 			}

@@ -1,37 +1,10 @@
-###########################
-# Ace pilots Events
-###########################
-
-add_namespace = ace_promoted
-add_namespace = ace_died
-add_namespace = ace_killed_by_ace
-add_namespace = ace_killed_other_ace
-add_namespace = aces_killed_each_other
-
-# New ace has been promoted
-country_event = {
-	id = ace_promoted.1
-	immediate = {log = "[GetDateText]: [Root.GetName]: event ace_promoted.1"}
-	title = ace_promoted.1.t
-	desc = {
-		text = ace_promoted.1.d
-		trigger = {
-			is_major = no
-		}
-	}
-	desc = {
-		text = ace_promoted.1.d_major
-		trigger = {
-			is_major = yes
-		}
-	}
-	picture = GFX_report_event_ace_promoted
-	minor_flavor = yes
-
-	is_triggered_only = yes
-
-	option = {
-		name = ace_promoted.1.a
-		add_war_support = 0.02
-	}
+name = "Average mod"
+path = "mod/modname"
+picture = "thumbnail.png"
+version = "v1"
+supported_version = "1.13.*"
+tags={
+	"Gameplay"
+	"Historical"
 }
+remote_file_id="1678247250"
