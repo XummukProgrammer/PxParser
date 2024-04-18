@@ -1,9 +1,26 @@
-TAG = {
-    if = {
-        limit = {      # The bar character "|" is used to visualise the indent guide, rather than being used in-code.
-            has_stability > 0.5
-            has_war_support > 0.5
-        }
-        country_event = { id = my_event.1 hours = 1 }
-    }
+country_event = {
+	id = ace_promoted.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ace_promoted.2"}
+	title = ace_promoted.2.t
+	desc = {
+		text = ace_promoted.1.d
+		trigger = {
+			is_major = no
+		}
+	}
+	desc = {
+		text = ace_promoted.1.d_major
+		trigger = {
+			is_major = yes
+		}
+	}
+	picture = GFX_report_event_ace_promoted
+	minor_flavor = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = ace_promoted.1.a
+		add_war_support = 0.02
+	}
 }

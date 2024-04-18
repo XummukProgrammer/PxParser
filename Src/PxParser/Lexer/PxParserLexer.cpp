@@ -53,6 +53,33 @@ namespace PxParser
 			{
 				CommentProcess(beginText, endText);
 			}
+			else if (*beginText == '\"')
+			{
+				std::string text = "";
+				
+				for (; ;)
+				{
+					++beginText;
+
+					if (beginText == endText)
+					{
+						break;
+					}
+
+					if (*beginText != '\"')
+					{
+						text += *beginText;
+					}
+					else
+					{
+						break;
+					}
+				}
+
+				_tokens.push_back(std::make_shared<Token>(std::move(text), Token::Type::String));
+
+				++beginText;
+			}
 			else if (IsOperator(*beginText))
 			{
 				OperatorProcess(beginText, endText);
