@@ -1,6 +1,7 @@
 ﻿#include "PxParserLocalizationDocument.hpp"
 
 #include <PxParser/Lexer/PxParserLexer.hpp>
+#include <PxParser/Helpers/PxParserFilesHelper.hpp>
 
 namespace PxParser
 {
@@ -77,6 +78,10 @@ namespace PxParser
 
 	void LocalizationDocument::SaveToFile(const std::string& fullPath)
 	{
+		std::string data;
+		SaveValues(data);
+
+		Helpers::WriteToFile(fullPath, data);
 	}
 
 	std::map<std::string, std::string> LocalizationDocument::GetData() const
@@ -89,5 +94,35 @@ namespace PxParser
 		}
 
 		return data;
+	}
+
+	void LocalizationDocument::SaveValues(std::string& data)
+	{
+		for (auto it = _root->GetValuesBegin(); it != _root->GetValuesEnd(); ++it)
+		{
+			if ((*it)->GetName() != "LocalizationName")
+			{
+				SaveValue(*it, data);
+			}
+			else
+			{
+				SaveHeader(*it, data);
+			}
+		}
+	}
+
+	void LocalizationDocument::SaveValue(const Node::ValuePtr& value, std::string& data)
+	{
+		data += "  ";
+		data += value->GetName();
+		data += ":0 ";
+		data += value->GetValue();
+		data += "\n";
+	}
+
+	void LocalizationDocument::SaveHeader(const Node::ValuePtr& value, std::string& data)
+	{
+		data += value->GetValue();
+		data += ":\n";
 	}
 }

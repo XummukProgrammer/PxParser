@@ -19,6 +19,11 @@ namespace PxParser
 
 	public:
 		std::map<std::string, std::string> GetData() const;
+
+	private:
+		void SaveValues(std::string& data);
+		void SaveValue(const Node::ValuePtr& value, std::string& data);
+		void SaveHeader(const Node::ValuePtr& value, std::string& data);
 	};
 }
 
