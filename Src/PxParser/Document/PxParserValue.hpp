@@ -1,23 +1,23 @@
 ﻿#ifndef _PX_PARSER_VALUE_HEADER_
 #define _PX_PARSER_VALUE_HEADER_
 
-#include <string>
+#include <PxParser/Data/PxParserString.hpp>
 
 namespace PxParser
 {
 	class Value final
 	{
 	public:
-		Value(const std::string& name, const std::string& value);
+		Value(const std::string& name, const Data::String& value);
 		~Value() = default;
 
 	public:
 		const std::string& GetName() const;
-		const std::string& GetValue() const;
+		const Data::String& GetValue() const;
 
 	private:
 		std::string _name;
-		std::string _value;
+		Data::String _value;
 	};
 }
 

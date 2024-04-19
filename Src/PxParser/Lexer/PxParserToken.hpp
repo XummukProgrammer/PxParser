@@ -1,7 +1,7 @@
 ﻿#ifndef _PX_PARSER_TOKEN_HEADER_
 #define _PX_PARSER_TOKEN_HEADER_
 
-#include <string>
+#include <PxParser/Data/PxParserString.hpp>
 
 namespace PxParser
 {
@@ -16,15 +16,15 @@ namespace PxParser
 		};
 
 	public:
-		Token(const std::string& text, Type type);
+		Token(const std::string& text, bool isStrong, Type type);
 		~Token() = default;
 		
 	public:
-		const std::string& GetText() const;
+		const Data::String& GetText() const;
 		Type GetType() const;
 
 	private:
-		std::string _text;
+		Data::String _text;
 		Type _type;
 	};
 }

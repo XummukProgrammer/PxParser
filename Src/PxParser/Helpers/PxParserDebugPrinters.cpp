@@ -8,7 +8,7 @@ namespace PxParser::Helpers
 {
 	void PrintToken(const std::shared_ptr<Token>& token)
 	{
-		std::cout << "TOKEN INFO:\t" << token->GetText() << " | " << TokenTypeToString(token->GetType()) << std::endl;
+		std::cout << "TOKEN INFO:\t" << token->GetText().GetString() << " | " << TokenTypeToString(token->GetType()) << std::endl;
 	}
 
 	void PrintTokens(const std::vector<std::shared_ptr<Token>> tokens)

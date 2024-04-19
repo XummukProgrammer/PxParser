@@ -4,7 +4,7 @@
 
 namespace PxParser
 {
-    Value::Value(const std::string& name, const std::string& value)
+    Value::Value(const std::string& name, const Data::String& value)
         : _name(name)
         , _value(value)
     {
@@ -15,7 +15,7 @@ namespace PxParser
         return _name;
     }
 
-    const std::string& Value::GetValue() const
+    const Data::String& Value::GetValue() const
     {
         return _value;
     }

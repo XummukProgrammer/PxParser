@@ -70,7 +70,7 @@ namespace PxParser
 					}
 				}
 
-				_tokens.push_back(std::make_shared<Token>(std::move(text), Token::Type::String));
+				_tokens.push_back(std::make_shared<Token>(std::move(text), true, Token::Type::String));
 
 				++beginText;
 			}
@@ -123,7 +123,7 @@ namespace PxParser
 	{
 		std::string text = std::string{ *beginText };
 
-		_tokens.push_back(std::make_shared<Token>(std::move(text), Token::Type::Operator));
+		_tokens.push_back(std::make_shared<Token>(std::move(text), false, Token::Type::Operator));
 
 		++beginText;
 	}
@@ -146,7 +146,7 @@ namespace PxParser
 			}
 		}
 
-		_tokens.push_back(std::make_shared<Token>(std::move(text), Token::Type::Number));
+		_tokens.push_back(std::make_shared<Token>(std::move(text), false, Token::Type::Number));
 	}
 
 	void Lexer::TextProcess(std::string::const_iterator& beginText, std::string::const_iterator& endText)
@@ -172,7 +172,7 @@ namespace PxParser
 			}
 		}
 
-		_tokens.push_back(std::make_shared<Token>(std::move(text), Token::Type::String));
+		_tokens.push_back(std::make_shared<Token>(std::move(text), false, Token::Type::String));
 	}
 
 	void Lexer::CommentProcess(std::string::const_iterator& beginText, std::string::const_iterator& endText)

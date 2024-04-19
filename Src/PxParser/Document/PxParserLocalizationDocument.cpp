@@ -116,7 +116,7 @@ namespace PxParser
 		data += "  ";
 		data += value->GetName();
 		data += ":0 ";
-		data += value->GetValue();
+		value->GetValue().Save(data);
 		data += "\n";
 	}
 

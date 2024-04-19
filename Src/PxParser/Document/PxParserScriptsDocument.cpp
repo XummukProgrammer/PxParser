@@ -29,7 +29,7 @@ namespace PxParser
 
 			if ((*begin)->GetType() == Token::Type::String)
 			{
-				std::string name = (*begin)->GetText();
+				const auto& name = (*begin)->GetText();
 
 				++begin;
 
@@ -63,7 +63,7 @@ namespace PxParser
 						}
 						else if ((*begin)->GetType() == Token::Type::String)
 						{
-							std::string value = (*begin)->GetText();
+							const auto& value = (*begin)->GetText();
 
 							_stack.top()->AddValue(std::make_shared<Value>(name, value));
 
@@ -92,7 +92,7 @@ namespace PxParser
 
 						if ((*begin)->GetType() == Token::Type::String || (*begin)->GetType() == Token::Type::Number)
 						{
-							std::string value = (*begin)->GetText();
+							const auto& value = (*begin)->GetText();
 
 							_stack.top()->AddCondition(std::make_shared<Condition>(name, conditionType, value));
 
@@ -119,7 +119,7 @@ namespace PxParser
 			}
 			else if ((*begin)->GetType() == Token::Type::Number)
 			{
-				std::string val = (*begin)->GetText();
+				const auto& val = (*begin)->GetText();
 
 				++begin;
 
@@ -220,7 +220,7 @@ namespace PxParser
 			data += " = ";
 		}
 
-		data += value->GetValue();
+		value->GetValue().Save(data);
 
 		--_depth;
 	}
