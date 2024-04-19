@@ -40,6 +40,12 @@ namespace PxParser::Data
 		return _isStrong;
 	}
 
+	void String::Update(const std::string& string, bool isStrong)
+	{
+		_string = string;
+		_isStrong = isStrong;
+	}
+
 	String::operator std::string() const
 	{
 		return _string;

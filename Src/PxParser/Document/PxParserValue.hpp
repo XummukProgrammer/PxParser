@@ -15,6 +15,10 @@ namespace PxParser
 		const std::string& GetName() const;
 		const Data::String& GetValue() const;
 
+	public:
+		void SetValue(const std::string& value, bool isStrong = false);
+		void SetValue(const Data::String& string);
+
 	private:
 		std::string _name;
 		Data::String _value;

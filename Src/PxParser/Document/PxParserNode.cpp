@@ -52,14 +52,14 @@ namespace PxParser
         _values.push_back(value);
     }
 
-    std::vector<std::string> Node::GetValue(const std::string& name) const
+    std::vector<Node::ValuePtr> Node::GetValue(const std::string& name) const
     {
-        std::vector<std::string> values;
+        std::vector<ValuePtr> values;
         for (const auto& value : _values)
         {
             if (value->GetName() == name)
             {
-                values.push_back(value->GetValue());
+                values.push_back(value);
             }
         }
         return values;
@@ -78,11 +78,6 @@ namespace PxParser
     Node::ValuesConstIterator Node::GetValuesEnd() const
     {
         return _values.end();
-    }
-
-    std::vector<std::string> Node::GetArray() const
-    {
-        return GetValue("Array");
     }
 
     void Node::AddCondition(const ConditionPtr& condition)
@@ -116,5 +111,56 @@ namespace PxParser
     Node::ConditionsConstIterator Node::GetConditionsEnd() const
     {
         return _conditions.end();
+    }
+
+    Node::ChildPtr Node::CreateChild(const std::string& name)
+    {
+        auto newChild = std::make_shared<Node>(name);
+        AddChild(newChild);
+        return newChild;
+    }
+
+    Node::ValuePtr Node::CreateValue(const std::string& name)
+    {
+        auto newValue = std::make_shared<Value>(name, Data::String());
+        AddValue(newValue);
+        return newValue;
+    }
+
+    Node::ConditionPtr Node::CreateCondition(const std::string& name)
+    {
+        auto newCondition = std::make_shared<Condition>(name, Condition::Type::Less, "0");
+        AddCondition(newCondition);
+        return newCondition;
+    }
+
+    Node::ChildPtr Node::GetOrCreateChild(const std::string& name)
+    {
+        auto children = GetChild(name);
+        if (children.size() > 0)
+        {
+            return children[0];
+        }
+        return CreateChild(name);
+    }
+
+    Node::ValuePtr Node::GetOrCreateValue(const std::string& name)
+    {
+        auto values = GetValue(name);
+        if (values.size() > 0)
+        {
+            return values[0];
+        }
+        return CreateValue(name);
+    }
+
+    Node::ConditionPtr Node::GetOrCreateCondition(const std::string& name)
+    {
+        auto conditions = GetCondition(name);
+        if (conditions.size() > 0)
+        {
+            return conditions[0];
+        }
+        return CreateCondition(name);
     }
 }

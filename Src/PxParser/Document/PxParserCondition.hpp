@@ -23,6 +23,10 @@ namespace PxParser
 		Type GetType() const;
 		const std::string& GetValue() const;
 
+	public:
+		void SetType(Type type);
+		void SetValue(const std::string& value);
+
 	private:
 		std::string _name;
 		Type _type;

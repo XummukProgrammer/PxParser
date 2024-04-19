@@ -20,6 +20,9 @@ namespace PxParser::Data
 		bool IsStrong() const;
 
 	public:
+		void Update(const std::string& string, bool isStrong = false);
+
+	public:
 		operator std::string() const;
 
 	public:

@@ -19,4 +19,14 @@ namespace PxParser
     {
         return _value;
     }
+
+    void Value::SetValue(const std::string& value, bool isStrong)
+    {
+        _value.Update(value, isStrong);
+    }
+
+    void Value::SetValue(const Data::String& string)
+    {
+        _value = string;
+    }
 }

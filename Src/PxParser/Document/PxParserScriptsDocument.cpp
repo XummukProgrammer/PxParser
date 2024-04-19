@@ -53,9 +53,7 @@ namespace PxParser
 						{
 							if ((*begin)->GetText() == "{")
 							{
-								auto newChild = std::make_shared<Node>(name);
-								_stack.top()->AddChild(newChild);
-
+								auto newChild = _stack.top()->CreateChild(name);
 								_stack.push(newChild);
 
 								++begin;
@@ -64,8 +62,7 @@ namespace PxParser
 						else if ((*begin)->GetType() == Token::Type::String || (*begin)->GetType() == Token::Type::Number)
 						{
 							const auto& value = (*begin)->GetText();
-
-							_stack.top()->AddValue(std::make_shared<Value>(name, value));
+							_stack.top()->CreateValue(name)->SetValue(value);
 
 							++begin;
 						}
@@ -93,24 +90,25 @@ namespace PxParser
 						if ((*begin)->GetType() == Token::Type::String || (*begin)->GetType() == Token::Type::Number)
 						{
 							const auto& value = (*begin)->GetText();
-
-							_stack.top()->AddCondition(std::make_shared<Condition>(name, conditionType, value));
+							auto newCondition = _stack.top()->CreateCondition(name);
+							newCondition->SetType(conditionType);
+							newCondition->SetValue(value);
 
 							++begin;
 						}
 					}
 					else if ((*begin)->GetText() == "}")
 					{
-						_stack.top()->AddValue(std::make_shared<Value>("Array", name));
+						_stack.top()->CreateValue("Array")->SetValue(name);
 					}
 				}
 				else if ((*begin)->GetType() == Token::Type::String)
 				{
-					_stack.top()->AddValue(std::make_shared<Value>("Array", name));
+					_stack.top()->CreateValue("Array")->SetValue(name);
 
 					do
 					{
-						_stack.top()->AddValue(std::make_shared<Value>("Array", (*begin)->GetText()));
+						_stack.top()->CreateValue("Array")->SetValue((*begin)->GetText());
 
 						++begin;
 					} 
@@ -132,16 +130,16 @@ namespace PxParser
 				{
 					if ((*begin)->GetText() == "}")
 					{
-						_stack.top()->AddValue(std::make_shared<Value>("Array", val));
+						_stack.top()->CreateValue("Array")->SetValue(val);
 					}
 				}
 				else if ((*begin)->GetType() == Token::Type::Number)
 				{
-					_stack.top()->AddValue(std::make_shared<Value>("Array", val));
+					_stack.top()->CreateValue("Array")->SetValue(val);
 
 					do
 					{
-						_stack.top()->AddValue(std::make_shared<Value>("Array", (*begin)->GetText()));
+						_stack.top()->CreateValue("Array")->SetValue((*begin)->GetText());
 
 						++begin;
 					} 

@@ -25,4 +25,14 @@ namespace PxParser
     {
         return _value;
     }
+
+    void Condition::SetType(Type type)
+    {
+        _type = type;
+    }
+
+    void Condition::SetValue(const std::string& value)
+    {
+        _value = value;
+    }
 }

@@ -33,30 +33,41 @@ namespace PxParser
 		const std::string& GetName() const;
 
 	public:
-		void AddChild(const ChildPtr& child);
-		std::vector<ChildPtr> GetChild(const std::string& name) const;
-
 		const Children& GetChildren() const;
 		ChildrenConstIterator GetChildrenBegin() const;
 		ChildrenConstIterator GetChildrenEnd() const;
 
 	public:
-		void AddValue(const ValuePtr& value);
-		std::vector<std::string> GetValue(const std::string& name) const;
-
 		const Values& GetValues() const;
 		ValuesConstIterator GetValuesBegin() const;
 		ValuesConstIterator GetValuesEnd() const;
 
-		std::vector<std::string> GetArray() const;
-
 	public:
-		void AddCondition(const ConditionPtr& condition);
-		std::vector<ConditionPtr> GetCondition(const std::string& name) const;
-
 		const Conditions& GetConditions() const;
 		ConditionsConstIterator GetConditionsBegin() const;
 		ConditionsConstIterator GetConditionsEnd() const;
+
+	public:
+		ChildPtr CreateChild(const std::string& name);
+		ValuePtr CreateValue(const std::string& name);
+		ConditionPtr CreateCondition(const std::string& name);
+
+	public:
+		ChildPtr GetOrCreateChild(const std::string& name);
+		ValuePtr GetOrCreateValue(const std::string& name);
+		ConditionPtr GetOrCreateCondition(const std::string& name);
+
+	private:
+		void AddChild(const ChildPtr& child);
+		std::vector<ChildPtr> GetChild(const std::string& name) const;
+
+	private:
+		void AddValue(const ValuePtr& value);
+		std::vector<ValuePtr> GetValue(const std::string& name) const;
+
+	private:
+		void AddCondition(const ConditionPtr& condition);
+		std::vector<ConditionPtr> GetCondition(const std::string& name) const;
 
 	private:
 		std::string _name;

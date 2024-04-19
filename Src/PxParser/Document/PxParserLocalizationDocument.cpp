@@ -18,7 +18,7 @@ namespace PxParser
 		auto begin = lexer.GetTokensBegin();
 		auto end = lexer.GetTokensEnd();
 
-		_root->AddValue(std::make_shared<Value>("LocalizationName", (*begin)->GetText()));
+		_root->CreateValue("LocalizationName")->SetValue((*begin)->GetText());
 		++begin;
 		
 		++begin;
@@ -64,8 +64,7 @@ namespace PxParser
 							if ((*begin)->GetType() == Token::Type::String)
 							{
 								const auto& value = (*begin)->GetText();
-
-								_root->AddValue(std::make_shared<Value>(key, value));
+								_root->CreateValue(key)->SetValue(value);
 
 								++begin;
 							}
