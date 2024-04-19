@@ -213,8 +213,13 @@ namespace PxParser
 
 		data += "\n";
 		data += GetTabsByDepth();
-		data += value->GetName();
-		data += " = ";
+
+		if (value->GetName() != "Array")
+		{
+			data += value->GetName();
+			data += " = ";
+		}
+
 		data += value->GetValue();
 
 		--_depth;

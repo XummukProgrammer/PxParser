@@ -1,14 +1,11 @@
 
-ideas = {
-	country = {
-		car_rally_men = {
-			allowed = {
-				Array = 123
-				Array = 4
-				Array = 55
-				Array = 7
-				Array = 92
-			}
-		}
-	}
+name = Average mod
+path = mod/modname
+picture = thumbnail.png
+version = v1
+supported_version = 1.13.*
+remote_file_id = 1678247250
+tags = {
+	Gameplay
+	Historical
 }

@@ -17,7 +17,9 @@ namespace PxParser
 		auto begin = lexer.GetTokensBegin();
 		auto end = lexer.GetTokensEnd();
 
+		_root->AddValue(std::make_shared<Value>("LocalizationName", (*begin)->GetText()));
 		++begin;
+		
 		++begin;
 
 		for (;;)
