@@ -1,13 +1,8 @@
-
-TAG = {
-	if = {
-		limit = {
-			has_stability > 0.5
-			has_war_support > 0.5
-			country_event = {
-				id = my_event.1
-				hours = 1
+ideas = {
+	country = {
+		car_rally_men = {
+			allowed = {
+				123 4 55 7 92
 			}
 		}
-	}
 }

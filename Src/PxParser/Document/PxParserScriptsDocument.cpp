@@ -62,7 +62,7 @@ namespace PxParser
 								++begin;
 							}
 						}
-						else if ((*begin)->GetType() == Token::Type::String || (*begin)->GetType() == Token::Type::Number)
+						else if ((*begin)->GetType() == Token::Type::String)
 						{
 							std::string value = (*begin)->GetText();
 
@@ -114,7 +114,39 @@ namespace PxParser
 						_stack.top()->AddValue(std::make_shared<Value>("Array", (*begin)->GetText()));
 
 						++begin;
-					} while ((*begin)->GetText() != "}");
+					} 
+					while ((*begin)->GetText() != "}");
+				}
+			}
+			else if ((*begin)->GetType() == Token::Type::Number)
+			{
+				std::string val = (*begin)->GetText();
+
+				++begin;
+
+				if (begin == end)
+				{
+					break;
+				}
+
+				if ((*begin)->GetType() == Token::Type::Operator)
+				{
+					if ((*begin)->GetText() == "}")
+					{
+						_stack.top()->AddValue(std::make_shared<Value>("Array", val));
+					}
+				}
+				else if ((*begin)->GetType() == Token::Type::Number)
+				{
+					_stack.top()->AddValue(std::make_shared<Value>("Array", val));
+
+					do
+					{
+						_stack.top()->AddValue(std::make_shared<Value>("Array", (*begin)->GetText()));
+
+						++begin;
+					} 
+					while ((*begin)->GetText() != "}");
 				}
 			}
 			else if ((*begin)->GetType() == Token::Type::Operator)
