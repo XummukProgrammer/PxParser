@@ -61,7 +61,7 @@ namespace PxParser
 								++begin;
 							}
 						}
-						else if ((*begin)->GetType() == Token::Type::String)
+						else if ((*begin)->GetType() == Token::Type::String || (*begin)->GetType() == Token::Type::Number)
 						{
 							const auto& value = (*begin)->GetText();
 
