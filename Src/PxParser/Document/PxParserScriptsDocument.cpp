@@ -2,8 +2,7 @@
 
 #include <PxParser/Lexer/PxParserLexer.hpp>
 #include <PxParser/Helpers/PxParserConverters.hpp>
-
-#include <fstream>
+#include <PxParser/Helpers/PxParserFilesHelper.hpp>
 
 namespace PxParser
 {
@@ -163,16 +162,10 @@ namespace PxParser
 
 	void ScriptsDocument::SaveToFile(const std::string& fullPath)
 	{
-		std::ofstream fout(fullPath);
-		if (fout.is_open())
-		{
-			std::string data;
-			SaveNode(_root, data);
+		std::string data;
+		SaveNode(_root, data);
 
-			fout << data;
-
-			fout.close();
-		}
+		Helpers::WriteToFile(fullPath, data);
 	}
 
 	void ScriptsDocument::SaveNode(const NodePtr& node, std::string& data)

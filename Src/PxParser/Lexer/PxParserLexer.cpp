@@ -1,10 +1,7 @@
 ﻿#include "PxParserLexer.hpp"
 
 #include <PxParser/Helpers/PxParserDebugPrinters.hpp>
-
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include <PxParser/Helpers/PxParserFilesHelper.hpp>
 
 namespace PxParser
 {
@@ -25,14 +22,9 @@ namespace PxParser
 
 	void Lexer::LoadFromFile(const std::string& fullPath)
 	{
-		std::ifstream fin(fullPath);
-		if (fin.is_open())
-		{
-			std::ostringstream sstr;
-			sstr << fin.rdbuf();
-			Process(sstr.str());
-			fin.close();
-		}
+		std::string data;
+		Helpers::ReadFromFile(fullPath, data);
+		Process(data);
 	}
 
 	void Lexer::Process(const std::string& text)
@@ -99,14 +91,7 @@ namespace PxParser
 
 	void Lexer::DebugPrintTokens()
 	{
-		std::cout << "Number of tokens: " << _tokens.size() << std::endl;
-
-		std::cout << "================================" << std::endl;
-		for (const auto& token : _tokens)
-		{
-			Helpers::PrintToken(*token);
-		}
-		std::cout << "================================" << std::endl;
+		Helpers::PrintTokens(_tokens);
 	}
 
 	bool Lexer::IsOperator(char symbol)

@@ -1,7 +1,5 @@
 ﻿#include "PxParserDocument.hpp"
 
-#include <PxParser/Lexer/PxParserLexer.hpp>
-
 namespace PxParser
 {
 	Document::Document()
