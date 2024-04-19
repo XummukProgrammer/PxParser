@@ -1,8 +1,46 @@
-ideas = {
-	country = {
-		car_rally_men = {
-			allowed = {
-				123 4 55 7 92
-			}
-		}
-}
+l_english:
+  ACH_startup_oob_tt:0 "Our trained and prepared soldiers will be deployed to the field! Spawns §G5§! §YBrotherhood Paladin§! Divisions and §G9§! §YBrotherhood Knight§! Divisions. Also adds three division templates for future use."
+  ACH_split_from_TBH:0 "The §YAlamo Chapter§! has broken away from the §YTexas Brotherhood.§!"
+  ACH_send_it_to_bos_tt:0 "Unlocks a focus for §Y[BOS.GetNameWithFlag]§!"
+  send_it_west_modifier:0 "Recieved Valuable Data"
+  ACH_join_tbh_tt:0 "We will ask to reintegrate into the §Y[TBH.GetNameWithFlag]§!"
+  ACH_merge_hood_ideas:0 "This will merge our previous Ideas into one"
+  ach_robot_war_idea_tt:0 "Add §YCircuit Breakers§!, which grants ((§Y[TLA.GetFlag]Tlaloc's Children§!) Attack bonus against countries: §G+5.0%§!)"
+  ACH_not_texas_formed_tt:0 "Has not formed the §YTexas Chapter§!"
+  ACH_not_leon_formed_tt:0 "Has not formed the §YRio Chapter§!"
+
+
+  ACH_elite_pt:0 "Scribes"
+  ACH_elite_pt_long:0 "Scribes Control"
+  ACH_ruler_pt:0 "Maxonians"
+  ACH_ruler_pt_long:0 "The Maxonians"
+  ACH_int_pt:0 "Circle of Steel"
+  ACH_int_pt_long:0 "The Circle of Steel"
+  ACH_people_pt:0 "Texan Loyalists"
+  ACH_people_pt_long:0 "Texan Brotherhood Sympathisers"
+
+  ACH_leon_brotherhood_people:0 "Rio Chapter"
+  ACH_leon_brotherhood_people_ADJ:0 "Alamo"
+  ACH_leon_brotherhood_people_DEF:0 "The Rio Chapter"
+  ACH_leon_brotherhood_ruler:0 "Rio Chapter"
+  ACH_leon_brotherhood_ruler_ADJ:0 "Rio"
+  ACH_leon_brotherhood_ruler_DEF:0 "The Rio Chapter"
+  ACH_leon_brotherhood_elites:0 "Rio Chapter"
+  ACH_leon_brotherhood_elites_ADJ:0 "Rio"
+  ACH_leon_brotherhood_elites_DEF:0 "The Rio Chapter"
+  ACH_leon_brotherhood_intellectuals:0 "Rio Chapter"
+  ACH_leon_brotherhood_intellectuals_ADJ:0 "Alamo"
+  ACH_leon_brotherhood_intellectuals_DEF:0 "The Rio Chapter"
+
+  ACH_texan_brotherhood_people:0 "Texas Chapter"
+  ACH_texan_brotherhood_people_ADJ:0 "Texan"
+  ACH_texan_brotherhood_people_DEF:0 "The Texas Chapter"
+  ACH_texan_brotherhood_ruler:0 "Texan Chapter"
+  ACH_texan_brotherhood_ruler_ADJ:0 "Texan"
+  ACH_texan_brotherhood_ruler_DEF:0 "The Texas Chapter"
+  ACH_texan_brotherhood_elites:0 "Texas Chapter"
+  ACH_texan_brotherhood_elites_ADJ:0 "Texan"
+  ACH_texan_brotherhood_elites_DEF:0 "The Texas Chapter"
+  ACH_texan_brotherhood_intellectuals:0 "Texas Chapter"
+  ACH_texan_brotherhood_intellectuals_ADJ:0 "Texan"
+  ACH_texan_brotherhood_intellectuals_DEF:0 "The Texas Chapter"

@@ -100,7 +100,8 @@ namespace PxParser
 			|| symbol == '{'
 			|| symbol == '}'
 			|| symbol == '>'
-			|| symbol == '<';
+			|| symbol == '<'
+			|| symbol == ':';
 	}
 
 	bool Lexer::IsNumber(char symbol)

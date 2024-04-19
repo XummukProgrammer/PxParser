@@ -2,9 +2,12 @@
 
 int main(int argc, char** argv)
 {
-	PxParser::ScriptsDocument doc;
-	doc.LoadFromFile("D:\\Git\\PxParser\\Assets\\test.txt");
-	doc.SaveToFile("D:\\Git\\PxParser\\Assets\\out.txt");
+	PxParser::LocalizationDocument document;
+	document.LoadFromFile("D:\\Git\\PxParser\\Assets\\test.txt");
+	document.SaveToFile("D:\\Git\\PxParser\\Assets\\out.txt");
+
+	const auto& data = document.GetData();
+
 	system("pause");
 	return 0;
 }

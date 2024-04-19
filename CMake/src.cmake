@@ -7,6 +7,7 @@ set(PX_HEADERS
 	
 	src/PxParser/Document/PxParserDocument.hpp
 	src/PxParser/Document/PxParserScriptsDocument.hpp
+	src/PxParser/Document/PxParserLocalizationDocument.hpp
 	src/PxParser/Document/PxParserNode.hpp
 	src/PxParser/Document/PxParserValue.hpp
 	src/PxParser/Document/PxParserCondition.hpp
@@ -26,6 +27,7 @@ set(PX_SOURCES
 	
 	src/PxParser/Document/PxParserDocument.cpp
 	src/PxParser/Document/PxParserScriptsDocument.cpp
+	src/PxParser/Document/PxParserLocalizationDocument.cpp
 	src/PxParser/Document/PxParserNode.cpp
 	src/PxParser/Document/PxParserValue.cpp
 	src/PxParser/Document/PxParserCondition.cpp
