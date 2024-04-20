@@ -17,6 +17,9 @@ set(PX_HEADERS
 	src/PxParser/Helpers/PxParserFilesHelper.hpp
 	
 	src/PxParser/Data/PxParserString.hpp
+	
+	src/PxParser/FileSystem/PxParserFileSystem.hpp
+	src/PxParser/FileSystem/PxParserModFile.hpp
 )
 
 set(PX_SOURCES
@@ -39,4 +42,7 @@ set(PX_SOURCES
 	src/PxParser/Helpers/PxParserFilesHelper.cpp
 	
 	src/PxParser/Data/PxParserString.cpp
+	
+	src/PxParser/FileSystem/PxParserFileSystem.cpp
+	src/PxParser/FileSystem/PxParserModFile.cpp
 )

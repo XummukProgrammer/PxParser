@@ -57,17 +57,16 @@ namespace PxParser
 		ValuePtr GetOrCreateValue(const std::string& name);
 		ConditionPtr GetOrCreateCondition(const std::string& name);
 
+	public:
+		std::vector<ChildPtr> GetChild(const std::string& name) const;
+		std::vector<ValuePtr> GetValue(const std::string& name) const;
+		std::vector<ConditionPtr> GetCondition(const std::string& name) const;
+
 	private:
 		void AddChild(const ChildPtr& child);
-		std::vector<ChildPtr> GetChild(const std::string& name) const;
-
-	private:
 		void AddValue(const ValuePtr& value);
-		std::vector<ValuePtr> GetValue(const std::string& name) const;
-
-	private:
 		void AddCondition(const ConditionPtr& condition);
-		std::vector<ConditionPtr> GetCondition(const std::string& name) const;
+		
 
 	private:
 		std::string _name;

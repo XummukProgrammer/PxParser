@@ -4,4 +4,6 @@
 #include <PxParser/Document/PxParserScriptsDocument.hpp>
 #include <PxParser/Document/PxParserLocalizationDocument.hpp>
 
+#include <PxParser/FileSystem/PxParserFileSystem.hpp>
+
 #endif // _PX_PARSER_HEADER_

@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <filesystem>
 
 namespace PxParser::Helpers
 {
@@ -25,5 +26,17 @@ namespace PxParser::Helpers
 			data = sstr.str();
 			fin.close();
 		}
+	}
+
+	std::vector<std::string> GetAllFilesInFolder(const std::string& folderPath)
+	{
+		std::vector<std::string> paths;
+
+		for (const auto& entry : std::filesystem::directory_iterator(folderPath))
+		{
+			paths.push_back(entry.path().string());
+		}
+
+		return paths;
 	}
 }
