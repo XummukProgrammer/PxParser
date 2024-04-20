@@ -25,6 +25,7 @@ namespace PxParser
 		const std::string& GetSupportedVersion() const;
 		const std::string& GetPath() const;
 		const std::string& GetRemoteFileId() const;
+		const std::vector<std::string>& GetDependencies() const;
 
 	private:
 		std::string _name;
@@ -34,6 +35,7 @@ namespace PxParser
 		std::string _supportedVersion;
 		std::string _path;
 		std::string _remoteFileId;
+		std::vector<std::string> _dependencies;
 	};
 }
 

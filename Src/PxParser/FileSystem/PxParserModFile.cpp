@@ -16,6 +16,12 @@ namespace PxParser
 		{
 			_tags.push_back(tag->GetValue());
 		}
+
+		const auto& deps = node->GetOrCreateChild("dependencies")->GetValue("Array");
+		for (const auto& dep : deps)
+		{
+			_dependencies.push_back(dep->GetValue());
+		}
 	}
 
 	const std::string& ModFile::GetName() const
@@ -51,5 +57,10 @@ namespace PxParser
 	const std::string& ModFile::GetRemoteFileId() const
 	{
 		return _remoteFileId;
+	}
+
+	const std::vector<std::string>& ModFile::GetDependencies() const
+	{
+		return _dependencies;
 	}
 }
