@@ -15,7 +15,7 @@ namespace PxParser
 	{
 		Lexer lexer;
 		lexer.LoadFromFile(fullPath);
-		lexer.DebugPrintTokens();
+		//lexer.DebugPrintTokens();
 
 		auto begin = lexer.GetTokensBegin();
 		auto end = lexer.GetTokensEnd();

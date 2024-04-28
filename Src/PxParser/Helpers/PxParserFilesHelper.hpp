@@ -10,6 +10,7 @@ namespace PxParser::Helpers
 	void ReadFromFile(const std::string& fullPath, std::string& data);
 
 	std::vector<std::string> GetAllFilesInFolder(const std::string& folderPath);
+	std::vector<std::string> GetAllFoldersInFolder(const std::string& folderPath);
 }
 
 #endif // _PX_PARSER_FILES_HELPER_HEADER_

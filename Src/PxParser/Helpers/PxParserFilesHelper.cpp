@@ -39,4 +39,19 @@ namespace PxParser::Helpers
 
 		return paths;
 	}
+
+	std::vector<std::string> GetAllFoldersInFolder(const std::string& folderPath)
+	{
+		std::vector<std::string> paths;
+
+		for (const auto& entry : std::filesystem::directory_iterator(folderPath))
+		{
+			if (entry.is_directory())
+			{
+				paths.push_back(entry.path().string());
+			}
+		}
+
+		return paths;
+	}
 }

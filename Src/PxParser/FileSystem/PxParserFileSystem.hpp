@@ -31,6 +31,8 @@ namespace PxParser
 		ModFilesConstIterator GetModFilesBegin() const;
 		ModFilesConstIterator GetModFilesEnd() const;
 
+		ModFilePtr GetModFileByName(const std::string& name) const;
+
 	private:
 		void UpdateModFiles();
 

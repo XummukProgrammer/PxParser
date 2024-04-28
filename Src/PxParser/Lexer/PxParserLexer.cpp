@@ -5,6 +5,11 @@
 
 namespace PxParser
 {
+	Lexer::Lexer()
+		: _isStrongStringToEndLine(false)
+	{
+	}
+
 	const Lexer::Tokens& Lexer::GetTokens() const
 	{
 		return _tokens;
@@ -18,6 +23,11 @@ namespace PxParser
 	Lexer::TokensConstIterator Lexer::GetTokensEnd() const
 	{
 		return _tokens.end();
+	}
+
+	void Lexer::SetIsStrongStringToEndLine(bool isEnable)
+	{
+		_isStrongStringToEndLine = isEnable;
 	}
 
 	void Lexer::LoadFromFile(const std::string& fullPath)
@@ -60,13 +70,27 @@ namespace PxParser
 						break;
 					}
 
-					if (*beginText != '\"')
+					if (!_isStrongStringToEndLine)
 					{
-						text += *beginText;
+						if (*beginText != '\"')
+						{
+							text += *beginText;
+						}
+						else
+						{
+							break;
+						}
 					}
 					else
 					{
-						break;
+						if (*beginText == '\"' && ((beginText + 1) == endText || *(beginText + 1) == '\n' || *(beginText + 1) == ' '))
+						{
+							break;
+						}
+						else
+						{
+							text += *beginText;
+						}
 					}
 				}
 
@@ -172,7 +196,10 @@ namespace PxParser
 			}
 		}
 
-		_tokens.push_back(std::make_shared<Token>(std::move(text), false, Token::Type::String));
+		if (text != "п»ї")
+		{
+			_tokens.push_back(std::make_shared<Token>(std::move(text), false, Token::Type::String));
+		}
 	}
 
 	void Lexer::CommentProcess(std::string::const_iterator& beginText, std::string::const_iterator& endText)

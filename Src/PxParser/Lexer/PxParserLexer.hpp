@@ -16,13 +16,16 @@ namespace PxParser
 		using TokensConstIterator = Tokens::const_iterator;
 
 	public:
-		Lexer() = default;
+		Lexer();
 		~Lexer() = default;
 
 	public:
 		const Tokens& GetTokens() const;
 		TokensConstIterator GetTokensBegin() const;
 		TokensConstIterator GetTokensEnd() const;
+
+	public:
+		void SetIsStrongStringToEndLine(bool isEnable);
 
 	public:
 		void LoadFromFile(const std::string& fullPath);
@@ -47,6 +50,7 @@ namespace PxParser
 
 	private:
 		Tokens _tokens;
+		bool _isStrongStringToEndLine;
 	};
 }
 

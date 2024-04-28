@@ -35,6 +35,18 @@ namespace PxParser
 		return _modFiles.end();
 	}
 
+	FileSystem::ModFilePtr FileSystem::GetModFileByName(const std::string& name) const
+	{
+		for (const auto& modFile : _modFiles)
+		{
+			if (modFile->GetName() == name)
+			{
+				return modFile;
+			}
+		}
+		return nullptr;
+	}
+
 	void FileSystem::UpdateModFiles()
 	{
 		_modFiles.clear();

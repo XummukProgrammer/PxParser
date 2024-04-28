@@ -11,9 +11,15 @@ namespace PxParser
 
 	void LocalizationDocument::LoadFromFile(const std::string& fullPath)
 	{
+		if (fullPath == "D:/SteamLibrary/steamapps/workshop/content/394360/1826643372/localisation/english\\country_GEU_l_english.yml")
+		{
+			auto i = 0;
+		}
+
 		Lexer lexer;
+		lexer.SetIsStrongStringToEndLine(true);
 		lexer.LoadFromFile(fullPath);
-		lexer.DebugPrintTokens();
+		//lexer.DebugPrintTokens();
 
 		auto begin = lexer.GetTokensBegin();
 		auto end = lexer.GetTokensEnd();
@@ -30,9 +36,22 @@ namespace PxParser
 				break;
 			}
 
+			std::string key;
+			if ((*begin)->GetType() == Token::Type::Number)
+			{
+				key = (*begin)->GetText();
+
+				++begin;
+
+				if (begin == end)
+				{
+					break;
+				}
+			}
+
 			if ((*begin)->GetType() == Token::Type::String)
 			{
-				const auto& key = (*begin)->GetText();
+				key += (*begin)->GetText();
 
 				++begin;
 
@@ -60,14 +79,14 @@ namespace PxParser
 							{
 								break;
 							}
+						}
 
-							if ((*begin)->GetType() == Token::Type::String)
-							{
-								const auto& value = (*begin)->GetText();
-								_root->CreateValue(key)->SetValue(value);
+						if ((*begin)->GetType() == Token::Type::String)
+						{
+							const auto& value = (*begin)->GetText();
+							_root->CreateValue(key)->SetValue(value);
 
-								++begin;
-							}
+							++begin;
 						}
 					}
 				}
